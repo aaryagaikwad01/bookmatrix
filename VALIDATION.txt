@@ -1,0 +1,14 @@
+Local validation completed 2026-10-29
+
+PASS: npm ci (clean dependency installation)
+PASS: npm run build
+PASS: esbuild Function bundle targeting Node 22 with configured external dependencies
+PASS: all 3 node:test suites (catalogue, login, account, wishlist, admin checks, logout, 409 conflicts, 503 storage failure, configuration error, Function path rewriting)
+PASS: npm audit --omit=dev (0 known vulnerabilities reported)
+PASS: no missing local src/href references in HTML pages
+
+The Netlify handler test uses a mocked Blobs service, not a live Netlify site.
+Not performed: a real Netlify deployment, live Blobs persistence, live HTTPS cookie/redirect checks. These require your site and private environment variables.
+
+The original source folder and its account database were not changed.
+The delivered seed intentionally excludes original users and their activity.

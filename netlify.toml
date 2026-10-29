@@ -1,0 +1,20 @@
+[build]
+ command = "npm run build"
+ publish = "public"
+ functions = "netlify/functions"
+[build.environment]
+ NODE_VERSION = "22"
+[functions]
+ node_bundler = "esbuild"
+ external_node_modules = ["express", "@netlify/blobs", "serverless-http", "cookie-session", "bcryptjs"]
+ included_files = ["database.json"]
+[[redirects]]
+ from = "/api/*"
+ to = "/.netlify/functions/api/api/:splat"
+ status = 200
+ force = true
+[[headers]]
+ for = "/*"
+ [headers.values]
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "strict-origin-when-cross-origin"
